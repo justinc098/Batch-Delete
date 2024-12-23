@@ -1,8 +1,9 @@
-#Batch Delete V1.0.3
+#Batch Delete V1.0.4
 
 #This program was made to batch delete files but also be universal in doing so. It is still a work in progress with a few more added features to come.
-#It currently does not delete a folder within a folder and that is the next feature being worked on.
+#If you have any ideas for what can be added to this, please email me at jcord103001@gmail.com
 import os
+import shutil
 
 #all of the print statements that print a variable are meant for testing what the variable is pulling/displaying
 
@@ -42,7 +43,6 @@ class Test:
             else:
                 print('File does not exist')
         
-        #folder code
         elif self.delType.lower() == 'folder':
             self.folderName = input('Input folder name: ')
             #go through each folder indivdually
@@ -51,14 +51,7 @@ class Test:
                     self.dirPath3 = self.listPath2[i] + "\\" + self.folderName
                     #delete each file indivdually
                     if os.path.exists(self.dirPath3):
-                        self.inside = [f for f in os.listdir(self.dirPath3) if os.path.isfile(os.path.join(self.dirPath3, f))]
-                        for j in range(len(self.inside)):
-                            os.chdir(self.dirPath3)
-                            self.delFile = os.path.join(self.dirPath3, self.inside[j])
-                            'print(self.delFile)'
-                            os.remove(self.delFile)
-                        os.chdir(self.listPath2[i])
-                        os.rmdir(self.dirPath3)
+                        shutil.rmtree(self.dirPath3)
                         print(os.path.basename(self.listPath2[i]) + ': Done')
                     else:
                         print(os.path.basename(self.listPath2[i]) + ': Folder does not exist')
