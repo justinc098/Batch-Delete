@@ -1,4 +1,4 @@
-#Batch Delete V1.0.4
+#Batch Delete (Windows) V1.0.4
 
 #This program was made to batch delete files but also be universal in doing so. It is still a work in progress with a few more added features to come.
 #If you have any ideas for what can be added to this, please email me at jcord103001@gmail.com
